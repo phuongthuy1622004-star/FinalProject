@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: transparent;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table td {
+      padding: 8px 0;
+      font-size: 15px;
+    }
+
+    table td:first-child {
+      width: 25%;
+      font-weight: bold;
+    }
+
+    .note {
+      background: #f6f8fa;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .edit {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      text-decoration: underline;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .edit:hover {
+      color: #5ac465;
+      transform: scale(1.05);
+      text-decoration-color: #5ac465;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s;
+      box-sizing: border-box;
+    }
+
+    input:focus, select:focus {
+      border-color: #5ac465;
+      outline: none;
+    }
+
+    .btn-group {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .btn-save {
+      background-color: #ddd;
+      color: #555;
+    }
+
+    .btn-save:hover {
+      background-color: #5ac465;
+      color: white;
+    }
+
+    .btn-cancel {
+      margin-left: 10px;
+      background: none;
+      color: #000;
+      text-decoration: underline;
+    }
+
+    .btn-cancel:hover {
+      color: #d33;
+    }
+
+    .email-reminder {
+      background: #f6f8fa;
+      border-radius: 4px;
+      padding: 12px;
+      font-size: 14px;
+      color: #333;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="info-view">
+    <h2>THÔNG TIN TÀI KHOẢN</h2>
+    <p>Cập nhật thông tin cá nhân để hoàn tất quy trình đăng ký thành viên FitMeal.</p>
+
+    <table>
+      <tr><td>Họ và tên</td><td id="name">-</td></tr>
+      <tr><td>Giới tính</td><td id="gender">-</td></tr>
+      <tr><td>Số điện thoại</td><td id="phone">0889498368</td></tr>
+      <tr><td>Email</td><td id="email">-</td></tr>
+      <tr><td>Ngày sinh</td><td id="birthday">-</td></tr>
+    </table>
+
+    <div class="email-reminder">
+      Cập nhật email để nhận thông báo chương trình ưu đãi và khuyến mãi dành cho bạn.
+    </div>
+
+    <div class="edit" onclick="showEditForm()">Sửa thông tin</div>
+  </div>
+
+  <div id="edit-form" style="display:none;">
+    <h2>THÔNG TIN TÀI KHOẢN</h2>
+    <p>Cập nhật thông tin cá nhân để hoàn tất quy trình đăng ký thành viên FitMeal.</p>
+
+    <div class="form-group">
+      <label for="editName">Họ và tên</label>
+      <input type="text" id="editName" placeholder="Nhập đầy đủ họ và tên">
+    </div>
+
+    <div class="form-group">
+      <label for="editGender">Giới tính</label>
+      <select id="editGender">
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="editPhone">Số điện thoại</label>
+      <input type="text" id="editPhone" value="0889498368">
+    </div>
+
+    <div class="form-group">
+      <label for="editEmail">Email</label>
+      <input type="email" id="editEmail" placeholder="Nhập địa chỉ email">
+    </div>
+
+    <div class="form-group">
+      <label for="editBirthday">Sinh nhật</label>
+      <input type="date" id="editBirthday">
+    </div>
+
+    <div class="note">
+      Ngày sinh chỉ được cập nhật <b>một lần duy nhất.</b><br>
+      Vui lòng liên hệ tổng đài CSKH <b>1800 6068</b> để được hỗ trợ thêm.
+    </div>
+
+    <div class="btn-group">
+      <button class="btn-save" onclick="saveInfo()">LƯU THAY ĐỔI</button>
+      <button class="btn-cancel" onclick="cancelEdit()">Hủy</button>
+    </div>
+  </div>
+<script type="text/javascript">
+  // Hiển thị form chỉnh sửa
+  function showEditForm() {
+    document.getElementById("info-view").style.display = "none";
+    document.getElementById("edit-form").style.display = "block";
+  }
+
+  // Hủy chỉnh sửa
+  function cancelEdit() {
+    document.getElementById("edit-form").style.display = "none";
+    document.getElementById("info-view").style.display = "block";
+  }
+
+  // Lưu thông tin sau khi chỉnh sửa
+  function saveInfo() {
+    const name = document.getElementById("editName").value || "-";
+    const gender = document.getElementById("editGender").value || "-";
+    const phone = document.getElementById("editPhone").value || "-";
+    const email = document.getElementById("editEmail").value || "-";
+    const birthday = document.getElementById("editBirthday").value || "-";
+
+    // Hiển thị thông tin lên giao diện
+    document.getElementById("name").textContent = name;
+    document.getElementById("gender").textContent = gender;
+    document.getElementById("phone").textContent = phone;
+    document.getElementById("email").textContent = email;
+    document.getElementById("birthday").textContent = birthday;
+
+    // Cập nhật dữ liệu trong localStorage
+    let userData = JSON.parse(localStorage.getItem("current_user")) || {};
+    userData.firstName = name.split(" ").slice(-1).join(" "); // phần cuối là tên
+    userData.lastName = name.split(" ").slice(0, -1).join(" "); // phần đầu là họ
+    userData.gender = gender;
+    userData.phone = phone;
+    userData.email = email;
+    userData.birthday = birthday;
+
+    localStorage.setItem("current_user", JSON.stringify(userData));
+
+    // Quay lại chế độ xem
+    document.getElementById("edit-form").style.display = "none";
+    document.getElementById("info-view").style.display = "block";
+
+    // Thông báo cập nhật thành công
+    if (window.parent && window.parent.showSuccessToast) {
+      window.parent.showSuccessToast('Cập nhật thông tin thành công!');
+    } else {
+      alert("Cập nhật thông tin thành công!");
+    }
+  }
+
+  // Tải dữ liệu người dùng từ localStorage
+  function loadUserInfo() {
+    const jsonString = localStorage.getItem("current_user");
+    if (!jsonString) return;
+
+    const user = JSON.parse(jsonString);
+    const fullName = (user.lastName ? user.lastName + " " : "") + (user.firstName || "");
+
+    // Điền thông tin hiển thị
+    document.getElementById("name").textContent = fullName || "-";
+    document.getElementById("gender").textContent = user.gender || "-";
+    document.getElementById("phone").textContent = user.phone || "-";
+    document.getElementById("email").textContent = user.email || "-";
+    document.getElementById("birthday").textContent = user.birthday || "-";
+
+    // Điền sẵn thông tin vào form chỉnh sửa
+    document.getElementById("editName").value = fullName || "";
+    document.getElementById("editGender").value = user.gender || "Nam";
+    document.getElementById("editPhone").value = user.phone || "";
+    document.getElementById("editEmail").value = user.email || "";
+    document.getElementById("editBirthday").value = user.birthday || "";
+  }
+
+  // Gọi hàm load khi trang tải xong
+  window.onload = function() {
+    loadUserInfo();
+  };
+</script>
+
+</body>
+</html>

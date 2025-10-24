@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitMeal - Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            width: 800px;
+            max-width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 25%;
+            border-right: 1px solid #eee;
+            padding: 20px;
+        }
+
+        .sidebar img {
+            width: 120px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+
+        .sidebar a.active {
+            color: #d33;
+        }
+
+        .main {
+            width: 75%;
+            padding: 40px;
+        }
+
+        .main h2 {
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .gender {
+            margin-top: 10px;
+        }
+
+        .gender label {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        .save-info {
+            margin-top: 15px;
+        }
+
+        .save-info label {
+            display: inline;
+            margin-left: 5px;
+        }
+
+        .message {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="../images/logo no background.png" alt="Logo">
+            <a href="#" class="active" onclick="showForm('login')">Đăng nhập</a>
+            <a href="#" onclick="showForm('forgot')">Quên mật khẩu</a>
+            <a href="#" onclick="showForm('register')">Đăng ký</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+
+            <!-- Đăng nhập -->
+            <div id="loginForm">
+                <h2>ĐĂNG NHẬP</h2>
+                <div id="loginMessage" class="message"></div>
+                <form id="loginFormElement" onsubmit="return handleLogin(event)">
+                    <label for="loginEmail">Email*</label>
+                    <input type="text" id="loginEmail" required>
+
+                    <label for="loginPassword">Mật khẩu*</label>
+                    <input type="password" id="loginPassword" required>
+
+                    <div class="save-info">
+                        <input type="checkbox" id="saveInfo">
+                        <label for="saveInfo">Lưu thông tin đăng nhập</label>
+                    </div>
+
+                    <button type="submit">ĐĂNG NHẬP</button>
+                </form>
+            </div>
+
+            <!-- Quên mật khẩu -->
+            <div id="forgotForm" class="hidden">
+                <h2>QUÊN MẬT KHẨU</h2>
+                <div id="forgotMessage" class="message"></div>
+                <form id="forgotFormElement" onsubmit="return handleForgot(event)">
+                    <label for="forgotEmail">Email*</label>
+                    <input type="email" id="forgotEmail" required>
+                    <button type="submit">GỬI</button>
+                </form>
+            </div>
+
+            <!-- Đăng ký -->
+            <div id="registerForm" class="hidden">
+                <h2>ĐĂNG KÝ</h2>
+                <div id="registerMessage" class="message"></div>
+                <form id="registerFormElement" onsubmit="return handleRegister(event)">
+                    <label for="lastName">Họ của bạn*</label>
+                    <input type="text" id="lastName" required>
+
+                    <label for="firstName">Tên của bạn*</label>
+                    <input type="text" id="firstName" required>
+
+                    <label for="phone">Số điện thoại</label>
+                    <input type="tel" id="phone">
+
+                    <label>Giới tính</label>
+                    <div class="gender">
+                        <label><input type="radio" name="gender" value="Nữ" checked> Nữ</label>
+                        <label><input type="radio" name="gender" value="Nam"> Nam</label>
+                    </div>
+
+                    <label for="registerEmail">Email*</label>
+                    <input type="email" id="registerEmail" required>
+
+                    <label for="registerPassword">Mật khẩu*</label>
+                    <input type="password" id="registerPassword" required>
+
+                    <button type="submit">ĐĂNG KÝ</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        // Dữ liệu tài khoản
+        let accounts = [
+            { type: "customer", email: "cus@gmail.com", password: "123" },
+            { type: "admin", email: "admin@gmail.com", password: "123" }
+        ];
+
+        // Tìm tài khoản theo email và password
+        function selectOne(email, password) {
+            return accounts.find(ac => ac.email === email && ac.password === password) || null;
+        }
+
+        // Xử lý đăng nhập
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+            const saveInfo = document.getElementById("saveInfo").checked;
+            const messageDiv = document.getElementById("loginMessage");
+
+            const account = selectOne(email, password);
+
+            if (!account) {
+                messageDiv.className = "message error";
+                messageDiv.textContent = "Tài khoản không tồn tại. Vui lòng đăng ký!";
+                messageDiv.style.display = "block";
+            } else {
+                messageDiv.className = "message success";
+                messageDiv.textContent = "Đăng nhập thành công!";
+                messageDiv.style.display = "block";
+
+                if (saveInfo) {
+                    sessionStorage.setItem("savedEmail", email);
+                    sessionStorage.setItem("savedPassword", password);
+                }
+
+                setTimeout(() => {
+                    if (account.type === "customer") {
+                        window.location.href = "user_main.html";
+                    } else if (account.type === "admin") {
+                        window.location.href = "../../Admin/html/customer.html";
+                    }
+                }, 1000);
+            }
+        }
+
+        // Xử lý quên mật khẩu
+        function handleForgot(event) {
+            event.preventDefault();
+            const email = document.getElementById("forgotEmail").value;
+            const messageDiv = document.getElementById("forgotMessage");
+
+            messageDiv.className = "message success";
+            messageDiv.textContent = "Đã gửi email khôi phục mật khẩu đến " + email;
+            messageDiv.style.display = "block";
+
+            document.getElementById("forgotFormElement").reset();
+        }
+
+        // Xử lý đăng ký
+        function handleRegister(event) {
+            event.preventDefault();
+
+            const lastName = document.getElementById("lastName").value;
+            const firstName = document.getElementById("firstName").value;
+            const phone = document.getElementById("phone").value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
+            const messageDiv = document.getElementById("registerMessage");
+
+            // Kiểm tra email đã tồn tại
+            const existingAccount = accounts.find(acc => acc.email === email);
+            if (existingAccount) {
+                messageDiv.className = "message error";
+                messageDiv.textContent = "Email đã được đăng ký!";
+                messageDiv.style.display = "block";
+                return false;
+            }
+
+            // Tạo object tài khoản mới
+            const newAccount = {
+                type: "customer",
+                email: email,
+                password: password,
+                lastName: lastName,
+                firstName: firstName,
+                phone: phone,
+                gender: gender
+            };
+
+            // Thêm vào mảng accounts
+            accounts.push(newAccount);
+
+            // Lưu thông tin tài khoản mới vào localStorage
+            localStorage.setItem("current_user", JSON.stringify(newAccount));
+
+            messageDiv.className = "message success";
+            messageDiv.textContent = "Đăng ký thành công! Vui lòng đăng nhập.";
+            messageDiv.style.display = "block";
+
+            // Chuyển sang form đăng nhập sau 2 giây và điền sẵn email
+            setTimeout(() => {
+                showForm('login');
+                document.getElementById("loginEmail").value = email;
+            }, 2000);
+
+            return false;
+        }
+
+        // Chuyển đổi form
+        function showForm(form) {
+            document.getElementById("loginForm").classList.add("hidden");
+            document.getElementById("forgotForm").classList.add("hidden");
+            document.getElementById("registerForm").classList.add("hidden");
+
+            document.getElementById(form + "Form").classList.remove("hidden");
+
+            document.querySelectorAll(".message").forEach(msg => msg.style.display = "none");
+
+            document.querySelectorAll(".sidebar a").forEach(a => a.classList.remove("active"));
+            if (form === "login") document.querySelectorAll(".sidebar a")[0].classList.add("active");
+            if (form === "forgot") document.querySelectorAll(".sidebar a")[1].classList.add("active");
+            if (form === "register") document.querySelectorAll(".sidebar a")[2].classList.add("active");
+        }
+
+        // Tự động điền thông tin đã lưu khi tải trang
+        window.onload = function() {
+            const savedEmail = sessionStorage.getItem("savedEmail");
+            const savedPassword = sessionStorage.getItem("savedPassword");
+
+            if (savedEmail && savedPassword) {
+                document.getElementById("loginEmail").value = savedEmail;
+                document.getElementById("loginPassword").value = savedPassword;
+                document.getElementById("saveInfo").checked = true;
+            }
+        };
+    </script>
+</body>
+</html>

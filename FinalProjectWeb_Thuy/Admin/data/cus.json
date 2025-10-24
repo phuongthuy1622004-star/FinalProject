@@ -1,0 +1,214 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "name": "Nguyễn Văn An",
+      "phone": "0901234567",
+      "email": "nguyenvanan@gmail.com",
+      "acceptsMarketing": true,
+      "registerDate": "2024-12-15T09:30:00",
+      "address": "123 Nguyễn Huệ, Quận 1, Hồ Chí Minh",
+      "lastUpdate": "2025-10-18T14:30:00",
+      "lastOrder": {
+        "orderId": "#10045",
+        "date": "2025-10-15"
+      },
+      "incompleteOrders": 1,
+      "totalOrders": 15,
+      "avgOrderValue": 2500000,
+      "debt": 0,
+      "totalSpent": 37500000,
+      "rating": 5.0,
+      "feedback": "Sản phẩm tốt, giao hàng nhanh, nhân viên hỗ trợ nhiệt tình."
+    },
+    {
+      "id": "2",
+      "name": "Trần Thị Bình",
+      "phone": "0912345678",
+      "email": "tranthibinh@gmail.com",
+      "acceptsMarketing": false,
+      "registerDate": "2023-11-20T10:15:00",
+      "address": "456 Lê Lợi, Quận 3, Hồ Chí Minh",
+      "lastUpdate": "2025-10-19T09:15:00",
+      "lastOrder": {
+        "orderId": "#10052",
+        "date": "2025-10-18"
+      },
+      "incompleteOrders": 0,
+      "totalOrders": 28,
+      "avgOrderValue": 1800000,
+      "debt": -500000,
+      "totalSpent": 50400000,
+      "rating": 4.0,
+      "feedback": "Giá hợp lý, tuy nhiên thời gian giao hàng hơi lâu."
+    },
+    {
+      "id": "3",
+      "name": "Lê Minh Châu",
+      "phone": "0923456789",
+      "email": "leminhchau@gmail.com",
+      "acceptsMarketing": true,
+      "registerDate": "2024-01-05T08:00:00",
+      "address": "789 Điện Biên Phủ, Quận Bình Thạnh, Hồ Chí Minh",
+      "lastUpdate": "2025-10-17T16:45:00",
+      "lastOrder": {
+        "orderId": "#10038",
+        "date": "2025-10-12"
+      },
+      "incompleteOrders": 2,
+      "totalOrders": 42,
+      "avgOrderValue": 3200000,
+      "debt": 1200000,
+      "totalSpent": 134400000,
+      "rating": 5.0,
+      "feedback": "Rất hài lòng, chất lượng sản phẩm vượt mong đợi."
+    },
+    {
+      "id": "4",
+      "name": "Phạm Hoàng Dũng",
+      "phone": "0934567890",
+      "email": "phamhoangdung@gmail.com",
+      "acceptsMarketing": true,
+      "registerDate": "2024-06-10T11:45:00",
+      "address": "321 Võ Văn Tần, Quận 3, Hồ Chí Minh",
+      "lastUpdate": "2025-10-20T11:20:00",
+      "lastOrder": {
+        "orderId": "#10058",
+        "date": "2025-10-20"
+      },
+      "incompleteOrders": 0,
+      "totalOrders": 8,
+      "avgOrderValue": 4500000,
+      "debt": 0,
+      "totalSpent": 36000000,
+      "rating": 2.0,
+      "feedback": "Cần cải thiện bao bì, sản phẩm ổn."
+    },
+    {
+      "id": "5",
+      "name": "Võ Thị Lan",
+      "phone": "0945678901",
+      "email": "vothilan@gmail.com",
+      "acceptsMarketing": false,
+      "registerDate": "2023-09-22T14:10:00",
+      "address": "654 Cách Mạng Tháng 8, Quận 10, Hồ Chí Minh",
+      "lastUpdate": "2025-10-16T13:00:00",
+      "lastOrder": {
+        "orderId": "#10029",
+        "date": "2025-10-10"
+      },
+      "incompleteOrders": 3,
+      "totalOrders": 55,
+      "avgOrderValue": 2100000,
+      "debt": -2500000,
+      "totalSpent": 115500000,
+      "rating": 4.0,
+      "feedback": "Nhân viên chăm sóc khách hàng rất chu đáo."
+    },
+    {
+      "id": "6",
+      "name": "Đặng Quốc Huy",
+      "phone": "0956789012",
+      "email": "dangquochuy@gmail.com",
+      "acceptsMarketing": true,
+      "registerDate": "2024-03-18T09:00:00",
+      "address": "987 Hai Bà Trưng, Quận 1, Hồ Chí Minh",
+      "lastUpdate": "2025-10-19T15:30:00",
+      "lastOrder": {
+        "orderId": "#10050",
+        "date": "2025-10-17"
+      },
+      "incompleteOrders": 1,
+      "totalOrders": 22,
+      "avgOrderValue": 5200000,
+      "debt": 800000,
+      "totalSpent": 114400000,
+      "rating": 5.0,
+      "feedback": "Giao hàng rất đúng hẹn, sản phẩm đúng mô tả."
+    },
+    {
+      "id": "7",
+      "name": "Hoàng Thị Mai",
+      "phone": "0967890123",
+      "email": "hoangthimai@gmail.com",
+      "acceptsMarketing": false,
+      "registerDate": "2023-12-02T16:20:00",
+      "address": "159 Pasteur, Quận 1, Hồ Chí Minh",
+      "lastUpdate": "2025-10-15T10:45:00",
+      "lastOrder": {
+        "orderId": "#10021",
+        "date": "2025-10-08"
+      },
+      "incompleteOrders": 0,
+      "totalOrders": 12,
+      "avgOrderValue": 1500000,
+      "debt": 0,
+      "totalSpent": 18000000,
+      "rating": 3.0,
+      "feedback": "Hàng ổn, nhưng nên cải thiện đóng gói."
+    },
+    {
+      "id": "8",
+      "name": "Bùi Văn Nam",
+      "phone": "0978901234",
+      "email": "buivannam@gmail.com",
+      "acceptsMarketing": true,
+      "registerDate": "2024-05-01T10:00:00",
+      "address": "753 Lý Thường Kiệt, Quận 11, Hồ Chí Minh",
+      "lastUpdate": "2025-10-20T08:00:00",
+      "lastOrder": {
+        "orderId": "#10055",
+        "date": "2025-10-19"
+      },
+      "incompleteOrders": 2,
+      "totalOrders": 67,
+      "avgOrderValue": 2800000,
+      "debt": -1800000,
+      "totalSpent": 187600000,
+      "rating": 4.0,
+      "feedback": "Rất chuyên nghiệp, sẽ giới thiệu cho bạn bè."
+    },
+    {
+      "id": "9",
+      "name": "Ngô Thị Phương",
+      "phone": "0989012345",
+      "email": "ngothiphuong@gmail.com",
+      "acceptsMarketing": true,
+      "registerDate": "2024-02-10T08:45:00",
+      "address": "246 Trần Hưng Đạo, Quận 5, Hồ Chí Minh",
+      "lastUpdate": "2025-10-18T17:20:00",
+      "lastOrder": {
+        "orderId": "#10043",
+        "date": "2025-10-14"
+      },
+      "incompleteOrders": 1,
+      "totalOrders": 19,
+      "avgOrderValue": 3600000,
+      "debt": 500000,
+      "totalSpent": 68400000,
+      "rating": 4.0,
+      "feedback": "Mọi thứ ổn, hỗ trợ nhanh chóng."
+    },
+    {
+      "id": "10",
+      "name": "Nguyễn Thị Lý",
+      "phone": "0932946270",
+      "email": "LyNguyennn@gmail.com",
+      "acceptsMarketing": false,
+      "registerDate": "2022-08-01T12:00:00",
+      "address": "Hồ Chí Minh, Vietnam",
+      "lastUpdate": "2025-10-20T12:00:00",
+      "lastOrder": {
+        "orderId": "#10032",
+        "date": "2025-10-11"
+      },
+      "incompleteOrders": 2,
+      "totalOrders": 33,
+      "avgOrderValue": 3265545,
+      "debt": -107543000,
+      "totalSpent": 107763000,
+      "rating": 5.0,
+      "feedback": "Dịch vụ chăm sóc khách hàng tuyệt."
+    }
+  ]
+}

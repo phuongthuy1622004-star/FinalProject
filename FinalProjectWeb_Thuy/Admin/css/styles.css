@@ -1,0 +1,454 @@
+/* ==================== RESET & BASE STYLES ==================== */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: -apple-system, "Segoe UI", sans-serif; 
+    background: #f5f5f5; 
+    padding: 20px; 
+}
+
+/* ==================== HEADER SECTION ==================== */
+.header { 
+    background: white; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 8px; 
+}
+
+.header h1 { 
+    font-size: 24px; 
+    font-weight: 600; 
+}
+
+/* ==================== MAIN CONTAINER ==================== */
+.container { 
+    background: white; 
+    border-radius: 8px; 
+    padding: 24px; 
+    max-width: 1200px;
+    margin: auto;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ==================== BUTTONS ==================== */
+.icon-btn { 
+    height: 40px; 
+    border: 1px solid #dadce0; 
+    border-radius: 6px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+    background: white;
+    padding: 0 16px;
+    font-size: 14px;
+    gap: 8px;
+}
+
+.icon-btn.active { 
+    background: #e8f0fe; 
+    border-color: #1a73e8; 
+}
+
+/* NÚT XÓA - Thêm hiệu ứng mờ khi disabled */
+.icon-btn.delete { 
+    background: #dc3545; 
+    color: white; 
+    border-color: #dc3545; 
+    transition: opacity 0.2s;
+}
+
+.icon-btn.delete.disabled { 
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.icon-btn.delete:not(.disabled):hover { 
+    background: #c82333;
+}
+
+.icon-btn img { 
+    width: 20px; 
+    height: 20px; 
+}
+
+.back-btn {
+    padding: 8px 16px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+}
+
+.back-btn:hover {
+    background: #0056b3;
+}
+
+/* ==================== TABS ==================== */
+.tabs { 
+    border-bottom: 2px solid #e0e0e0; 
+    margin-bottom: 20px; 
+}
+
+.tab { 
+    display: inline-block; 
+    padding: 12px 0; 
+    margin-right: 30px; 
+    color: #1a73e8; 
+    font-weight: 500; 
+    border-bottom: 2px solid #1a73e8; 
+    margin-bottom: -2px; 
+}
+
+/* ==================== SEARCH BAR ==================== */
+.search-bar { 
+    display: flex; 
+    align-items: center; 
+    background: #f8f9fa; 
+    border: 1px solid #dadce0; 
+    border-radius: 24px; 
+    padding: 10px 16px; 
+    margin-bottom: 20px; 
+}
+
+.search-bar input { 
+    border: none; 
+    background: none; 
+    outline: none; 
+    flex: 1; 
+    font-size: 14px; 
+}
+
+/* ==================== TOOLBAR ==================== */
+.toolbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.toolbar-left { 
+    display: flex; 
+    gap: 10px; 
+    align-items: center; 
+}
+
+/* ==================== CUSTOMER COUNT ==================== */
+.customer-count { 
+    color: #5f6368; 
+    font-size: 14px; 
+    margin-bottom: 16px; 
+}
+
+/* ==================== TABLE STYLES ==================== */
+.table-container { 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    position: relative; 
+}
+
+.table-wrapper { 
+    overflow-x: auto; 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    min-width: 1400px; 
+}
+
+/* ==================== TABLE HEADER ==================== */
+thead th { 
+    background: #f8f9fa; 
+    text-align: left; 
+    padding: 12px; 
+    font-weight: 600; 
+    font-size: 14px; 
+    border-bottom: 1px solid #e0e0e0; 
+    white-space: nowrap; 
+    position: sticky; 
+    top: 0;
+    z-index: 5;
+}
+
+thead th.sortable { 
+    cursor: pointer; 
+    user-select: none; 
+}
+
+thead th.sortable:hover { 
+    background: #e8eaed; 
+}
+
+/* CỐT ĐỊNH 2 CỘT ĐẦU (Checkbox và Tên khách hàng) */
+thead th:first-child, tbody td:first-child { 
+    position: sticky; 
+    left: 0; 
+    z-index: 15;
+    background: #f8f9fa;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+}
+
+thead th:nth-child(2), tbody td:nth-child(2) { 
+    position: sticky; 
+    left: 40px;
+    z-index: 15;
+    background: #fafbfc;
+    box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+}
+
+tbody td:first-child { background: white; }
+tbody td:nth-child(2) { background: #fafbfc; }
+
+/* ==================== SORT INDICATOR ==================== */
+.sort-indicator { 
+    margin-left: 6px; 
+    font-size: 12px; 
+    color: #5f6368; 
+    opacity: 0.3; 
+}
+
+.sort-indicator.active { 
+    opacity: 1; 
+    color: #1a73e8; 
+    font-weight: bold; 
+}
+
+/* ==================== TABLE BODY ==================== */
+tbody td { 
+    padding: 16px 12px; 
+    font-size: 14px; 
+    border-bottom: 1px solid #f0f0f0; 
+    white-space: nowrap; 
+    background: white; 
+}
+
+tbody tr { 
+    cursor: pointer; 
+    transition: background 0.2s; 
+}
+
+tbody tr:hover td { 
+    background: #f8f9fa !important; 
+}
+
+tbody tr:hover td:nth-child(2) { 
+    background: #f0f3f5 !important; 
+}
+
+/* ==================== TABLE ELEMENTS ==================== */
+.checkbox { 
+    width: 18px; 
+    height: 18px; 
+    cursor: pointer; 
+}
+
+.customer-name, .order-link { 
+    color: #1a73e8; 
+    text-decoration: none; 
+    cursor: pointer; 
+}
+
+.customer-name:hover { 
+    text-decoration: underline; 
+}
+
+/* ==================== LOADING & ERROR STATES ==================== */
+.loading { 
+    text-align: center; 
+    padding: 40px; 
+    color: #666; 
+}
+
+.error { 
+    text-align: center; 
+    padding: 40px; 
+    color: #dc3545; 
+    background: #f8d7da; 
+    border-radius: 8px; 
+    margin: 20px; 
+}
+
+.error-message {
+    color: #dc3545;
+    padding: 20px;
+    text-align: center;
+    background: #f8d7da;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* ==================== COLUMN SELECTOR DROPDOWN ==================== */
+.column-selector { 
+    position: absolute; 
+    right: 0; 
+    top: 50px; 
+    background: white; 
+    border: 1px solid #dadce0; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+    padding: 16px; 
+    width: 250px; 
+    z-index: 1000; 
+    display: none; 
+}
+
+.column-selector.active { 
+    display: block; 
+}
+
+.column-selector h3 { 
+    font-size: 14px; 
+    font-weight: 600; 
+    margin-bottom: 12px; 
+}
+
+.column-group { 
+    margin-bottom: 16px; 
+}
+
+.column-group-title { 
+    font-size: 12px; 
+    font-weight: 600; 
+    color: #5f6368; 
+    margin-bottom: 8px; 
+    text-transform: uppercase; 
+}
+
+.column-option { 
+    display: flex; 
+    align-items: center; 
+    padding: 8px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+}
+
+.column-option:hover { 
+    background: #f8f9fa; 
+}
+
+.column-option input { 
+    margin-right: 10px; 
+}
+
+.column-option input:disabled { 
+    cursor: not-allowed; 
+    opacity: 0.5; 
+}
+
+.column-option label { 
+    cursor: pointer; 
+    flex: 1; 
+}
+
+.column-option.disabled { 
+    cursor: not-allowed; 
+    opacity: 0.6; 
+}
+
+.column-option.disabled:hover { 
+    background: transparent; 
+}
+
+/* ==================== CUSTOMER DETAIL PAGE ==================== */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #f9fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.card h4 {
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.card p {
+    margin: 4px 0 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.right-panel {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-box {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 15px;
+    background: #fff;
+}
+
+.info-box h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.info-box p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.rating {
+    display: flex;
+    gap: 4px;
+    font-size: 18px;
+    color: #ddd;
+}
+
+.rating span.active {
+    color: gold;
+}
+
+select {
+    margin-bottom: 20px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 300px;
+}

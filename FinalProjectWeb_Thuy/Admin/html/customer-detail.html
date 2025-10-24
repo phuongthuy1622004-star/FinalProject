@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thông tin khách hàng</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header với nút quay lại -->
+    <div class="header">
+      <button class="back-btn" onclick="window.location.href='customer-list.html'">← Quay lại</button>
+    </div>
+    <div>
+      <h2>Thông tin khách hàng</h2>
+    </div>
+
+    <!-- Dropdown chọn khách hàng (tùy chọn) -->
+    <select id="customerSelect">
+      <option value="">-- Chọn khách hàng --</option>
+    </select>
+
+    <!-- Phần hiển thị thông tin khách hàng -->
+    <div id="customerInfo" style="display: none;">
+      <!-- Profile: Avatar + tên + thông tin cơ bản -->
+      <div class="profile">
+        <div class="avatar" id="avatar">--</div>
+        <div>
+          <h3 id="name">Tên khách hàng</h3>
+          <p>Đã gắn bó với cửa hàng: <strong id="daysActive">0 ngày</strong></p>
+          <p id="purchaseStatus"></p>
+        </div>
+      </div>
+
+      <!-- Thống kê 3 cột: Tổng đơn, Tổng chi tiêu, Đơn gần đây -->
+      <div class="stats">
+        <div class="card">
+          <h4>Tổng số đơn đã mua</h4>
+          <p><strong id="totalOrders">0 đơn</strong></p>
+        </div>
+
+        <div class="card">
+          <h4>Tổng chi tiêu</h4>
+          <p><strong id="totalSpent">0 ₫</strong></p>
+        </div>
+
+        <div class="card">
+          <h4>Đơn hàng gần đây</h4>
+          <p id="lastOrder">Không có dữ liệu</p>
+        </div>
+      </div>
+
+      <!-- Panel 2 cột: Thông tin liên hệ + Đánh giá -->
+      <div class="right-panel">
+        <!-- Box thông tin liên hệ -->
+        <div class="info-box">
+          <h4>Thông tin liên hệ</h4>
+          <p>Email: <a href="#" id="email">---</a></p>
+          <p>Số điện thoại: <span id="phone">---</span></p>
+          <p>Địa chỉ: <span id="address">---</span></p>
+          <p id="marketingStatus">Trạng thái: ---</p>
+        </div>
+
+        <!-- Box đánh giá sao -->
+        <div class="info-box">
+          <h4>Đánh giá đơn gần nhất</h4>
+          <div class="rating" id="ratingStars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <h4>Bình Luận</h4>
+          <div class="feedback" id="feedback">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thông báo lỗi -->
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+    <!-- Loading -->
+    <div id="loadingMessage" class="loading">Đang tải dữ liệu...</div>
+  </div>
+
+  <!-- Link to external JavaScript -->
+  <script src="../js/customer-detail.js"></script>
+</body>
+</html>
