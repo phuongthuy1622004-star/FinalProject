@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chi tiết khách hàng - FitMeal Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/customer-detail.css">
+</head>
+<body>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">FitMeal Admin</div>
+      <nav class="nav">
+        <a class="nav-link" href="../../Order/html/order.html">
+          <span class="nav-icon">🛒</span>Đơn hàng
+        </a>
+        <a class="nav-link" href="../../Product/html/product.html">
+          <span class="nav-icon">🍱</span>Sản phẩm
+        </a>
+        <a class="nav-link active" href="customer-detail.html">
+          <span class="nav-icon">👤</span>Khách hàng
+        </a>
+        <a class="nav-link" href="../../Discount/html/discount.html">
+          <span class="nav-icon">🏷️</span>Khuyến mãi
+        </a>
+        <a class="nav-link" href="../../Report/html/report.html">
+          <span class="nav-icon">📈</span>Báo cáo
+        </a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="layout">
+      <!-- PAGE HEADER -->
+      <header class="page-header">
+        <div>
+          <p class="page-meta">Chi tiết</p>
+          <h1>Thông tin khách hàng</h1>
+        </div>
+        <div class="header-actions">
+          <button class="btn ghost back-btn" type="button" onclick="goBack()">← Quay lại</button>
+          <button class="btn ghost" type="button">Xuất dữ liệu</button>
+          <button class="btn primary" type="button">Tạo đơn hàng</button>
+        </div>
+      </header>
+
+      <!-- PANEL -->
+      <section class="panel">
+        <!-- Dropdown chọn khách hàng -->
+        <div class="customer-select-wrapper">
+          <label for="customerSelect">Chọn khách hàng</label>
+          <select id="customerSelect">
+            <option value="">-- Chọn khách hàng --</option>
+          </select>
+        </div>
+
+        <!-- Loading message -->
+        <div id="loadingMessage" class="loading">Đang tải dữ liệu...</div>
+
+        <!-- Error message -->
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        <!-- Customer Info -->
+        <div id="customerInfo" style="display: none;">
+          <!-- Profile -->
+          <div class="profile">
+            <div class="avatar" id="avatar">--</div>
+            <div>
+              <h3 id="name">Tên khách hàng</h3>
+              <p>Đã gắn bó với cửa hàng: <strong id="daysActive">0 ngày</strong></p>
+              <p id="purchaseStatus"></p>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="stats">
+            <div class="card">
+              <h4>Tổng số đơn đã mua</h4>
+              <p id="totalOrders">0 đơn</p>
+            </div>
+
+            <div class="card">
+              <h4>Tổng chi tiêu</h4>
+              <p id="totalSpent">0 ₫</p>
+            </div>
+
+            <div class="card">
+              <h4>Đơn hàng gần đây</h4>
+              <p id="lastOrder">Không có dữ liệu</p>
+            </div>
+          </div>
+
+          <!-- Right Panel -->
+          <div class="right-panel">
+            <!-- Contact Info -->
+            <div class="info-box">
+              <h4>Thông tin liên hệ</h4>
+              <p>Email: <a href="#" id="email" target="_blank">---</a></p>
+              <p>Số điện thoại: <span id="phone">---</span></p>
+              <p>Địa chỉ: <span id="address">---</span></p>
+              <p id="marketingStatus">Trạng thái: ---</p>
+            </div>
+
+            <!-- Rating -->
+            <div class="info-box">
+              <h4>Đánh giá đơn gần nhất</h4>
+              <div class="rating" id="ratingStars">
+                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              </div>
+              <h4 style="margin-top: 20px;">Bình luận</h4>
+              <div class="feedback" id="feedback">Chưa có bình luận</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../js/customer-detail.js"></script>
+</body>
+</html>

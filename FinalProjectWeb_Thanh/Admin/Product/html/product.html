@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitMeal Admin - Sản phẩm</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/product.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">FitMeal Admin</div>
+      <nav class="nav">
+        <a class="nav-link" href="../../Order/html/order.html"><span class="nav-icon">🛒</span>Đơn hàng</a>
+        <a class="nav-link active" href="product.html"><span class="nav-icon">🍱</span>Sản phẩm</a>
+        <a class="nav-link" href="../../Customer/html/customer-list.html"><span class="nav-icon">👤</span>Khách hàng</a>
+        <a class="nav-link" href="../../Discount/html/discount.html"><span class="nav-icon">🏷️</span>Khuyến mãi</a>
+        <a class="nav-link" href="../../Report/html/report.html"><span class="nav-icon">📈</span>Báo cáo</a>
+      </nav>
+    </aside>
+
+    <main class="layout">
+      <div class="page-header">
+        <div>
+          <p class="page-meta">Tổng số sản phẩm: <strong>8</strong></p>
+          <h1>Danh sách sản phẩm</h1>
+        </div>
+        <div class="header-actions">
+          <button class="btn ghost" type="button">Nhập dữ liệu</button>
+          <button class="btn ghost" type="button">Xuất dữ liệu</button>
+          <button class="btn primary" type="button"><span>➕</span>Tạo sản phẩm</button>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="panel">
+          <div class="panel-tabs" role="tablist">
+            <button class="tab active" type="button" data-filter="all">Tất cả sản phẩm</button>
+            <button class="tab" type="button" data-filter="active">Đang bán</button>
+            <button class="tab" type="button" data-filter="draft">Bản nháp</button>
+            <button class="tab" type="button" data-filter="archive">Lưu trữ</button>
+          </div>
+
+          <div class="panel-toolbar">
+            <button class="btn soft" type="button" data-action="filter">+ Thêm điều kiện lọc</button>
+            <label class="search">
+              <input type="search" id="search-input" placeholder="Tìm kiếm sản phẩm..." />
+              <span class="search-icon">🔍</span>
+            </label>
+            <button class="btn icon" type="button" title="Chế độ lưới">▦</button>
+            <button class="btn icon" type="button" title="Chế độ danh sách">☰</button>
+          </div>
+
+          <div class="table-wrap">
+            <table class="product-table">
+              <thead>
+                <tr>
+                  <th class="checkbox-col">
+                    <input type="checkbox" id="select-all" aria-label="Chọn tất cả" />
+                  </th>
+                  <th class="product-main">Tên sản phẩm</th>
+                  <th>Danh mục</th>
+                  <th>Nhóm</th>
+                  <th>Giá</th>
+                  <th>Trạng thái</th>
+                </tr>
+              </thead>
+              <tbody id="product-tbody">
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Bò nướng với khoai lang"
+                  data-meta="274 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="75,000 ₫"
+                  data-protein="32"
+                  data-carbs="38"
+                  data-fat="14"
+                  data-description="Thịt bò nướng mềm ướp sốt đặc trưng của FitMeal, dùng kèm khoai lang nướng mật ong và rau củ trộn — bữa ăn cân bằng, giàu đạm."
+                  data-image="../images/bo_nuong_khoai_lang.png"
+                  data-gallery="../images/bokhoailang1.png|../images/bokhoailang2.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/bo_nuong_khoai_lang.png" alt="Bò nướng với khoai lang" />
+                      <div>
+                        <p class="product-name">Bò nướng với khoai lang</p>
+                        <p class="product-sub">274 kcal • P 32g / C 38g / F 14g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">75,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Cá hồi với rau củ hấp"
+                  data-meta="320 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="85,000 ₫"
+                  data-protein="28"
+                  data-carbs="24"
+                  data-fat="12"
+                  data-description="Cá hồi áp chảo dùng kèm rau xanh hấp, bổ sung omega-3 và chất xơ."
+                  data-image="../images/ca_hoi_rau_cu.png"
+                  data-gallery="../images/cahoiraucu1.png|../images/cahoiraucu2.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/ca_hoi_rau_cu.png" alt="Cá hồi với rau củ hấp" />
+                      <div>
+                        <p class="product-name">Cá hồi với rau củ hấp</p>
+                        <p class="product-sub">320 kcal • P 28g / C 24g / F 12g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">85,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Mì tôm Nhật"
+                  data-meta="341 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="80,000 ₫"
+                  data-protein="27"
+                  data-carbs="45"
+                  data-fat="9"
+                  data-description="Mì kiều mạch với tôm tươi, sốt teriyaki nhẹ — cân bằng đạm nạc và carb phức."
+                  data-image="../images/mi_tom_Nhat.png"
+                  data-gallery="../images/mytomnhat1.png|../images/mytomnhat2.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/mi_tom_Nhat.png" alt="Mì tôm Nhật" />
+                      <div>
+                        <p class="product-name">Mì tôm Nhật</p>
+                        <p class="product-sub">341 kcal • P 27g / C 45g / F 9g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">80,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Ức gà với khoai tây"
+                  data-meta="285 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="70,000 ₫"
+                  data-protein="30"
+                  data-carbs="26"
+                  data-fat="8"
+                  data-description="Ức gà áp chảo sốt tiêu đen, dùng kèm khoai tây nướng và cải thìa — nguồn đạm nạc, ít béo."
+                  data-image="../images/uc_ga_khoai_tay.png"
+                  data-gallery="../images/ucgakhoaitay1.png|../images/uckhoaitay2.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/uc_ga_khoai_tay.png" alt="Ức gà với khoai tây" />
+                      <div>
+                        <p class="product-name">Ức gà với khoai tây</p>
+                        <p class="product-sub">285 kcal • P 30g / C 26g / F 8g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">70,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Mì gà sốt Cajun"
+                  data-meta="351 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="78,000 ₫"
+                  data-protein="31"
+                  data-carbs="43"
+                  data-fat="10"
+                  data-description="Mì nguyên cám với gà áp chảo sốt Cajun cay nhẹ và rau nướng — bữa trưa giàu năng lượng."
+                  data-image="../images/mi_ga_sot_cajun.png"
+                  data-gallery="../images/mygacajun1.png|../images/mygacajun2.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/mi_ga_sot_cajun.png" alt="Mì gà sốt Cajun" />
+                      <div>
+                        <p class="product-name">Mì gà sốt Cajun</p>
+                        <p class="product-sub">351 kcal • P 31g / C 43g / F 10g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">78,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Cá ngừ với bắp và khoai tây"
+                  data-meta="311 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="75,000 ₫"
+                  data-protein="29"
+                  data-carbs="35"
+                  data-fat="9"
+                  data-description="Cá ngừ áp chảo dùng kèm khoai tây, bắp và đậu Hà Lan — bổ sung đạm nạc và carb hấp thu chậm."
+                  data-image="../images/ca_ngu_khoai_bap.png"
+                  data-gallery="../images/cangubapkhoai1.png|../images/cangubapkhoai2.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/ca_ngu_khoai_bap.png" alt="Cá ngừ với bắp và khoai tây" />
+                      <div>
+                        <p class="product-name">Cá ngừ với bắp và khoai tây</p>
+                        <p class="product-sub">311 kcal • P 29g / C 35g / F 9g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">75,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Gà sốt Cajun với củ dền"
+                  data-meta="373 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="75,000 ₫"
+                  data-protein="33"
+                  data-carbs="36"
+                  data-fat="11"
+                  data-description="Ức gà áp chảo sốt Cajun cay nhẹ, ăn kèm gạo lứt, củ dền nướng và cà chua bi — đạm nạc cùng chất xơ và vitamin."
+                  data-image="../images/ga_sot_cajun_cu_den.png"
+                  data-gallery="../images/mycajuncuden1.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/ga_sot_cajun_cu_den.png" alt="Gà sốt Cajun với củ dền" />
+                      <div>
+                        <p class="product-name">Gà sốt Cajun với củ dền</p>
+                        <p class="product-sub">373 kcal • P 33g / C 36g / F 11g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">75,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+
+                <tr
+                  class="product-row"
+                  data-status="active"
+                  data-name="Mì cá basa"
+                  data-meta="439 kcal"
+                  data-category="Fit Meal"
+                  data-group="Thực đơn chính"
+                  data-price="70,000 ₫"
+                  data-protein="26"
+                  data-carbs="48"
+                  data-fat="13"
+                  data-description="Cá basa áp chảo phủ lớp mật ong nhẹ, dùng kèm mì soba và bơ nghiền — cân bằng chất béo tốt và đạm chất lượng."
+                  data-image="../images/mi_ca_basa.png"
+                  data-gallery="../images/mycabasa1.png|../images/mycabasa2.png"
+                  data-status-label="Đang bán"
+                >
+                  <td><input type="checkbox" /></td>
+                  <td class="product-cell">
+                    <div class="product-info">
+                      <img src="../images/mi_ca_basa.png" alt="Mì cá basa" />
+                      <div>
+                        <p class="product-name">Mì cá basa</p>
+                        <p class="product-sub">439 kcal • P 26g / C 48g / F 13g</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Fit Meal</td>
+                  <td>Thực đơn chính</td>
+                  <td class="money">70,000 ₫</td>
+                  <td><span class="status-pill available">Đang bán</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <aside class="detail-panel" id="detail-panel">
+          <p class="detail-placeholder">Nhấp vào sản phẩm để xem chi tiết.</p>
+          <div class="detail" hidden>
+            <header class="detail-header">
+              <div class="detail-thumb">
+                <img src="" alt="" id="detail-image" />
+              </div>
+              <div>
+                <div class="detail-status">
+                  <span class="status-pill" id="detail-status"></span>
+                </div>
+                <h2 id="detail-name"></h2>
+                <p class="detail-meta" id="detail-meta"></p>
+              </div>
+            </header>
+
+            <div class="detail-body">
+              <section>
+                <h3>Thông tin chung</h3>
+                <dl>
+                  <div>
+                    <dt>Loại sản phẩm</dt>
+                    <dd id="detail-category"></dd>
+                  </div>
+                  <div>
+                    <dt>Nhóm sản phẩm</dt>
+                    <dd id="detail-group"></dd>
+                  </div>
+                  <div>
+                    <dt>Giá</dt>
+                    <dd id="detail-price"></dd>
+                  </div>
+                </dl>
+              </section>
+
+              <section>
+                <h3>Mô tả sản phẩm</h3>
+                <p id="detail-description"></p>
+              </section>
+
+              <section class="nutrition-section">
+                <h3>Thành phần dinh dưỡng (mỗi khẩu phần)</h3>
+                <div class="nutrition-grid">
+                  <div class="nutrition-card">
+                    <span class="label">Đạm</span>
+                    <strong id="detail-protein"></strong>
+                  </div>
+                  <div class="nutrition-card">
+                    <span class="label">Tinh bột</span>
+                    <strong id="detail-carbs"></strong>
+                  </div>
+                  <div class="nutrition-card">
+                    <span class="label">Chất béo</span>
+                    <strong id="detail-fat"></strong>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <h3>Hình ảnh sản phẩm</h3>
+                <div class="detail-gallery" id="detail-gallery"></div>
+              </section>
+            </div>
+
+            <footer class="detail-footer">
+              <button class="btn danger" type="button">Xóa</button>
+              <div class="spacer"></div>
+              <button class="btn soft" type="button">Thêm hình</button>
+              <button class="btn primary" type="button">Cập nhật</button>
+            </footer>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../js/product.js"></script>
+</body>
+</html>

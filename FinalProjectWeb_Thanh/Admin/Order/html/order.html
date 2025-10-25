@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitMeal Admin - Đơn hàng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">FitMeal Admin</div>
+      <nav class="nav">
+        <a class="nav-link active" href="order.html"><span class="nav-icon">🛒</span>Đơn hàng</a>
+        <a class="nav-link" href="../../Product/html/product.html"><span class="nav-icon">🍱</span>Sản phẩm</a>
+        <a class="nav-link" href="../../Customer/html/customer-list.html"><span class="nav-icon">👤</span>Khách hàng</a>
+        <a class="nav-link" href="../../Discount/html/discount.html"><span class="nav-icon">🏷️</span>Khuyến mãi</a>
+        <a class="nav-link" href="../../Report/html/report.html"><span class="nav-icon">📈</span>Báo cáo</a>
+      </nav>
+    </aside>
+
+      <main>
+        <div class="container">
+          <div class="page-title">
+            <h2>Danh sách đơn hàng</h2>
+          </div>
+
+          <!-- Tabs -->
+          <div class="tabs">
+            <div class="tab active" data-tab-target="all">Tất cả đơn hàng</div>
+            <div class="tab" data-tab-target="undelivered">Chưa giao</div>
+            <div class="tab" data-tab-target="awaiting-payment">Chờ thanh toán</div>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="toolbar">
+            <button class="btn">☰ Lọc</button>
+            <div class="search"><input placeholder="Tìm kiếm"/></div>
+            <button class="btn icon" title="Lưới">▦</button>
+            <button class="btn icon" title="Danh sách">☰</button>
+          </div>
+
+          <!-- Orders table (card) -->
+          <section class="card">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>ID</th>
+                  <th>Ngày tạo</th>
+                  <th>Khách hàng</th>
+                  <th>Thanh toán</th>
+                  <th>Xử lý</th>
+                  <th>COD</th>
+                  <th>Mặt hàng</th>
+                  <th>Tổng</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1 (expanded) -->
+                <tr class="order-row is-open" data-payment="paid" data-fulfillment="pending">
+                  <td class="row-toggle" data-expanded="true">▾</td>
+                  <td><a href="#10032">#10032</a></td>
+                  <td>09/10/2025 08:58 CH</td>
+                  <td>Ngô Viết Thanh</td>
+                  <td><span class="pill paid">Đã thanh toán</span></td>
+                  <td><span class="pill pending">Chưa thực hiện</span></td>
+                  <td></td>
+                  <td>19</td>
+                  <td class="money">1,375,000 đ</td>
+                </tr>
+                <!-- Expanded content row -->
+                <tr class="order-details is-open">
+                  <td></td>
+                  <td colspan="8">
+                    <div class="shipping-wrap">
+                      <div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/uc_ga_khoai_tay.png" alt="Ức gà với khoai tây"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Ức gà với khoai tây</a>
+                            <div class="order-item-meta">x 5 • 70,000 đ</div>
+                            <div class="order-item-macros">Đạm 30g • Carb 26g • Béo 8g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">350,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/bo_nuong_khoai_lang.png" alt="Bò nướng với khoai lang"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Bò nướng với khoai lang</a>
+                            <div class="order-item-meta">x 9 • 75,000 đ</div>
+                            <div class="order-item-macros">Đạm 32g • Carb 38g • Béo 14g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">675,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/mi_ca_basa.png" alt="Mì cá basa"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Mì cá basa</a>
+                            <div class="order-item-meta">x 5 • 70,000 đ</div>
+                            <div class="order-item-macros">Đạm 26g • Carb 48g • Béo 13g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">350,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="shipping-box">
+                          <div class="shipping-title">
+                            <span>Thông tin giao hàng</span>
+                            <span>•</span>
+                            <a href="#">Ngô Viết Thanh</a>
+                          </div>
+                          <div class="shipping-subtitle">Chưa có thông tin công ty</div>
+                          <div class="shipping-address">Chung cư Bcons Green Topaz, Đông Hòa, Dĩ An, TP.HCM</div>
+                        </div>
+                        <div class="order-tools">
+                          <span>▣ Lưu trữ</span>
+                          <span>🖨️ In đơn hàng</span>
+                          <button class="link-action" type="button" data-modal-target="modal-cancel" data-order="#10032">
+                            ⨂ Hủy đơn hàng
+                          </button>
+                        </div>
+                      </div>
+                      <div class="notes-box">
+                        <div>
+                          <label for="note-field">Ghi chú</label>
+                          <textarea id="note-field" placeholder="Nhập ghi chú..."></textarea>
+                        </div>
+                        <div>
+                          <div class="notes-header">
+                            <label for="tag-field">Thẻ</label>
+                            <a href="#">Tất cả thẻ</a>
+                          </div>
+                          <input id="tag-field" placeholder="Tìm thẻ" />
+                        </div>
+                        <div class="notes-actions">
+                          <button class="btn">Lưu ghi chú và thẻ</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer-actions">
+                      <button class="btn secondary" type="button" data-modal-target="modal-confirm" data-order="#10032">
+                        Xác nhận đơn hàng
+                      </button>
+                      <button class="btn primary" type="button" data-modal-target="modal-delivery" data-order="#10032">
+                        Giao hàng
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr class="order-row" data-payment="pending" data-fulfillment="pending">
+                  <td class="row-toggle" data-expanded="false">▸</td>
+                  <td><a href="#10031">#10031</a></td>
+                  <td>09/10/2025 09:30 CH</td>
+                  <td>Nguyễn Quốc Thịnh</td>
+                  <td><span class="pill pending">Chưa thanh toán</span></td>
+                  <td><span class="pill pending">Chưa thực hiện</span></td>
+                  <td></td>
+                  <td>18</td>
+                  <td class="money">1,430,000 đ</td>
+                </tr>
+                <tr class="order-details">
+                  <td></td>
+                  <td colspan="8">
+                    <div class="shipping-wrap">
+                      <div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/bo_nuong_khoai_lang.png" alt="Bò nướng với khoai lang"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Bò nướng với khoai lang</a>
+                            <div class="order-item-meta">x 10 • 75,000 đ</div>
+                            <div class="order-item-macros">Đạm 32g • Carb 38g • Béo 14g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">750,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/ca_hoi_rau_cu.png" alt="Cá hồi với rau củ hấp"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Cá hồi với rau củ hấp</a>
+                            <div class="order-item-meta">x 8 • 85,000 đ</div>
+                            <div class="order-item-macros">Đạm 28g • Carb 24g • Béo 12g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">680,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="shipping-box">
+                          <div class="shipping-title">
+                            <span>Thông tin giao hàng</span>
+                            <span>•</span>
+                            <a href="#">Nguyễn Quốc Thịnh</a>
+                          </div>
+                          <div class="shipping-subtitle">Chưa có thông tin công ty</div>
+                          <div class="shipping-address">88 Nguyễn Du, Quận 1, TP.HCM</div>
+                        </div>
+                        <div class="order-tools">
+                          <span>▣ Lưu trữ</span>
+                          <span>🖨️ In đơn hàng</span>
+                          <button class="link-action" type="button" data-modal-target="modal-cancel" data-order="#10031">
+                            ⨂ Hủy đơn hàng
+                          </button>
+                        </div>
+                      </div>
+                      <div class="notes-box">
+                        <div>
+                          <label for="note-field-10031">Ghi chú</label>
+                          <textarea id="note-field-10031" placeholder="Nhập ghi chú..."></textarea>
+                        </div>
+                        <div>
+                          <div class="notes-header">
+                            <label for="tag-field-10031">Thẻ</label>
+                            <a href="#">Tất cả thẻ</a>
+                          </div>
+                          <input id="tag-field-10031" placeholder="Tìm thẻ" />
+                        </div>
+                        <div class="notes-actions">
+                          <button class="btn">Lưu ghi chú và thẻ</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer-actions">
+                      <button class="btn secondary" type="button" data-modal-target="modal-confirm" data-order="#10031">
+                        Xác nhận đơn hàng
+                      </button>
+                      <button class="btn primary" type="button" data-modal-target="modal-delivery" data-order="#10031">
+                        Giao hàng
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Row 3 -->
+                <tr class="order-row" data-payment="pending" data-fulfillment="pending">
+                  <td class="row-toggle" data-expanded="false">▸</td>
+                  <td><a href="#10030">#10030</a></td>
+                  <td>09/10/2025 09:42 CH</td>
+                  <td>Trần Quốc Hào</td>
+                  <td><span class="pill pending">Chưa thanh toán</span></td>
+                  <td><span class="pill pending">Chưa thực hiện</span></td>
+                  <td></td>
+                  <td>32</td>
+                  <td class="money">2,418,000 đ</td>
+                </tr>
+                <tr class="order-details">
+                  <td></td>
+                  <td colspan="8">
+                    <div class="shipping-wrap">
+                      <div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/ga_sot_cajun_cu_den.png" alt="Gà sốt Cajun với củ dền"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Gà sốt Cajun với củ dền</a>
+                            <div class="order-item-meta">x 14 • 75,000 đ</div>
+                            <div class="order-item-macros">Đạm 33g • Carb 36g • Béo 11g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">1,050,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/mi_ga_sot_cajun.png" alt="Mì gà sốt Cajun"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Mì gà sốt Cajun</a>
+                            <div class="order-item-meta">x 6 • 78,000 đ</div>
+                            <div class="order-item-macros">Đạm 31g • Carb 43g • Béo 10g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">468,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/ca_ngu_khoai_bap.png" alt="Cá ngừ với bắp và khoai tây"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Cá ngừ với bắp và khoai tây</a>
+                            <div class="order-item-meta">x 12 • 75,000 đ</div>
+                            <div class="order-item-macros">Đạm 29g • Carb 35g • Béo 9g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">900,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="shipping-box">
+                          <div class="shipping-title">
+                            <span>Thông tin giao hàng</span>
+                            <span>•</span>
+                            <a href="#">Trần Quốc Hào</a>
+                          </div>
+                          <div class="shipping-subtitle">Chưa có thông tin công ty</div>
+                          <div class="shipping-address">12 Trần Não, Thành phố Thủ Đức, TP.HCM</div>
+                        </div>
+                        <div class="order-tools">
+                          <span>▣ Lưu trữ</span>
+                          <span>🖨️ In đơn hàng</span>
+                          <button class="link-action" type="button" data-modal-target="modal-cancel" data-order="#10030">
+                            ⨂ Hủy đơn hàng
+                          </button>
+                        </div>
+                      </div>
+                      <div class="notes-box">
+                        <div>
+                          <label for="note-field-10030">Ghi chú</label>
+                          <textarea id="note-field-10030" placeholder="Nhập ghi chú..."></textarea>
+                        </div>
+                        <div>
+                          <div class="notes-header">
+                            <label for="tag-field-10030">Thẻ</label>
+                            <a href="#">Tất cả thẻ</a>
+                          </div>
+                          <input id="tag-field-10030" placeholder="Tìm thẻ" />
+                        </div>
+                        <div class="notes-actions">
+                          <button class="btn">Lưu ghi chú và thẻ</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer-actions">
+                      <button class="btn secondary" type="button" data-modal-target="modal-confirm" data-order="#10030">
+                        Xác nhận đơn hàng
+                      </button>
+                      <button class="btn primary" type="button" data-modal-target="modal-delivery" data-order="#10030">
+                        Giao hàng
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <!-- Row 4 -->
+                <tr class="order-row" data-payment="paid" data-fulfillment="pending">
+                  <td class="row-toggle" data-expanded="false">▸</td>
+                  <td><a href="#10029">#10029</a></td>
+                  <td>09/10/2025 10:27 CH</td>
+                  <td>Huỳnh Vĩ Khôi</td>
+                  <td><span class="pill paid">Đã thanh toán</span></td>
+                  <td><span class="pill pending">Chưa thực hiện</span></td>
+                  <td></td>
+                  <td>37</td>
+                  <td class="money">2,738,000 đ</td>
+                </tr>
+                <tr class="order-details">
+                  <td></td>
+                  <td colspan="8">
+                    <div class="shipping-wrap">
+                      <div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/mi_ca_basa.png" alt="Mì cá basa"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Mì cá basa</a>
+                            <div class="order-item-meta">x 21 • 70,000 đ</div>
+                            <div class="order-item-macros">Đạm 26g • Carb 48g • Béo 13g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">1,470,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/mi_tom_Nhat.png" alt="Mì tôm Nhật"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Mì tôm Nhật</a>
+                            <div class="order-item-meta">x 10 • 80,000 đ</div>
+                            <div class="order-item-macros">Đạm 27g • Carb 45g • Béo 9g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">800,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="order-item">
+                          <div class="avatar"><img src="../../Product/images/mi_ga_sot_cajun.png" alt="Mì gà sốt Cajun"></div>
+                          <div class="order-item-content">
+                            <a class="order-item-title" href="#">Mì gà sốt Cajun</a>
+                            <div class="order-item-meta">x 6 • 78,000 đ</div>
+                            <div class="order-item-macros">Đạm 31g • Carb 43g • Béo 10g</div>
+                            <div class="order-item-total">Thành tiền: <span class="money">468,000 đ</span></div>
+                          </div>
+                        </div>
+                        <div class="shipping-box">
+                          <div class="shipping-title">
+                            <span>Thông tin giao hàng</span>
+                            <span>•</span>
+                            <a href="#">Huỳnh Vĩ Khôi</a>
+                          </div>
+                          <div class="shipping-subtitle">Chưa có thông tin công ty</div>
+                          <div class="shipping-address">562 Lê Văn Sỹ, Quận 3, TP.HCM</div>
+                        </div>
+                        <div class="order-tools">
+                          <span>▣ Lưu trữ</span>
+                          <span>🖨️ In đơn hàng</span>
+                          <button class="link-action" type="button" data-modal-target="modal-cancel" data-order="#10029">
+                            ⨂ Hủy đơn hàng
+                          </button>
+                        </div>
+                      </div>
+                      <div class="notes-box">
+                        <div>
+                          <label for="note-field-10029">Ghi chú</label>
+                          <textarea id="note-field-10029" placeholder="Nhập ghi chú..."></textarea>
+                        </div>
+                        <div>
+                          <div class="notes-header">
+                            <label for="tag-field-10029">Thẻ</label>
+                            <a href="#">Tất cả thẻ</a>
+                          </div>
+                          <input id="tag-field-10029" placeholder="Tìm thẻ" />
+                        </div>
+                        <div class="notes-actions">
+                          <button class="btn">Lưu ghi chú và thẻ</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer-actions">
+                      <button class="btn secondary" type="button" data-modal-target="modal-confirm" data-order="#10029">
+                        Xác nhận đơn hàng
+                      </button>
+                      <button class="btn primary" type="button" data-modal-target="modal-delivery" data-order="#10029">
+                        Giao hàng
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="table-summary" data-table-summary>Tổng: 4 đơn</div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+  <!-- Cancel order modal -->
+  <div class="modal" id="modal-cancel" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-cancel-title">
+      <header class="modal__header">
+        <h3 id="modal-cancel-title">Hủy đơn hàng</h3>
+        <button class="modal__close" type="button" aria-label="Đóng" data-modal-close>×</button>
+      </header>
+      <div class="modal__body">
+        <div class="modal__notice">
+          Fit Meal đề xuất hủy đơn trong các trường hợp như có dấu hiệu gian lận, khách đổi ý hoặc sản phẩm hết hàng.<br />
+          Lưu ý: Khi đã hủy, đơn hàng không thể khôi phục.
+        </div>
+        <div class="form-group">
+          <label for="cancel-reason">Lý do hủy đơn hàng</label>
+          <select id="cancel-reason">
+            <option value="" selected>Chọn lý do</option>
+            <option value="change">Khách đổi ý</option>
+            <option value="stockout">Hết hàng</option>
+            <option value="fraud">Đơn gian lận</option>
+            <option value="other">Khác</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cancel-note">Ghi chú</label>
+          <textarea id="cancel-note" rows="3" placeholder="Thêm ghi chú..."></textarea>
+        </div>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn secondary" type="button" data-modal-close>Không</button>
+        <button class="btn primary" type="button" data-modal-confirm="cancel">Hủy đơn hàng</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Confirm order modal -->
+  <div class="modal" id="modal-confirm" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-confirm-title">
+      <header class="modal__header">
+        <h3 id="modal-confirm-title">Xác minh đơn hàng</h3>
+        <button class="modal__close" type="button" aria-label="Đóng" data-modal-close>×</button>
+      </header>
+      <div class="modal__body">
+        <p>Xác nhận đơn <strong data-order-placeholder>#10032</strong>?</p>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn secondary with-icon" type="button" data-modal-close>
+          <span class="btn-icon">×</span>
+          Hủy
+        </button>
+        <button class="btn primary with-icon" type="button" data-modal-confirm="confirm">
+          <span class="btn-icon">✔</span>
+          Tiếp tục
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Delivery modal -->
+  <div class="modal" id="modal-delivery" aria-hidden="true">
+    <div class="modal__overlay" data-modal-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-delivery-title">
+      <header class="modal__header">
+        <h3 id="modal-delivery-title">Giao hàng</h3>
+        <button class="modal__close" type="button" aria-label="Đóng" data-modal-close>×</button>
+      </header>
+      <div class="modal__body">
+        <p>Giao đơn <strong data-order-placeholder>#10032</strong>?</p>
+      </div>
+      <footer class="modal__footer">
+        <button class="btn secondary with-icon" type="button" data-modal-close>
+          <span class="btn-icon">×</span>
+          Hủy
+        </button>
+        <button class="btn primary with-icon" type="button" data-modal-confirm="delivery">
+          <span class="btn-icon">✔</span>
+          Tiếp tục
+        </button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../js/order.js" defer></script>
+</body>
+</html>

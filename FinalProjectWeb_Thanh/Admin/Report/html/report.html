@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FitMeal Admin - Báo cáo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/report.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">FitMeal Admin</div>
+      <nav class="nav">
+        <a class="nav-link" href="../../Order/html/order.html"><span class="nav-icon">🛒</span>Đơn hàng</a>
+        <a class="nav-link" href="../../Product/html/product.html"><span class="nav-icon">🍱</span>Sản phẩm</a>
+        <a class="nav-link" href="../../Customer/html/customer-list.html"><span class="nav-icon">👤</span>Khách hàng</a>
+        <a class="nav-link" href="../../Discount/html/discount.html"><span class="nav-icon">🏷️</span>Khuyến mãi</a>
+        <a class="nav-link active" href="report.html"><span class="nav-icon">📈</span>Báo cáo</a>
+      </nav>
+    </aside>
+
+    <main class="layout">
+      <header class="page-header">
+        <div class="header-title">
+          <button class="btn ghost icon-only" type="button" aria-label="Quay lại">←</button>
+          <div>
+            <p class="page-meta">Bảng điều khiển</p>
+            <h1>Báo cáo hiệu suất</h1>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="btn" type="button">In</button>
+          <button class="btn" type="button">Xuất</button>
+          <button class="btn" type="button">Nhân bản</button>
+        </div>
+      </header>
+
+      <section class="controls">
+        <div class="control-group">
+          <label class="control-label" for="report-range">Khoảng thời gian</label>
+          <div class="select-wrap">
+            <select id="report-range">
+              <option value="this-month">Tháng này</option>
+              <option value="last-month">Tháng trước</option>
+              <option value="this-quarter">Quý này</option>
+              <option value="this-year">Năm nay</option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label" for="comparison-range">So sánh với</label>
+          <div class="select-wrap">
+            <select id="comparison-range">
+              <option value="previous-period">Kỳ trước</option>
+              <option value="previous-year">Cùng kỳ năm trước</option>
+              <option value="none">Không so sánh</option>
+            </select>
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <button class="btn soft" type="button" id="open-filter">☰ Bộ lọc</button>
+      </section>
+
+      <section class="chart-card">
+        <header class="card-header">
+          <h2>Doanh thu thuần</h2>
+          <div class="legend">
+            <span class="legend-item">
+              <span class="legend-color"></span>
+              <span id="legend-label">01/10/2025 - 31/10/2025</span>
+            </span>
+          </div>
+        </header>
+        <div class="chart-wrap">
+          <canvas id="report-chart" aria-label="Biểu đồ doanh thu thuần" role="img"></canvas>
+        </div>
+      </section>
+
+      <section class="table-card">
+        <header class="card-header">
+          <div class="filter-tags" id="filter-tags">
+            <button class="tag" data-filter="status">
+              Trạng thái đơn hàng không phải Đã hủy
+              <span class="tag-remove" aria-hidden="true">×</span>
+            </button>
+          </div>
+          <button class="btn icon" type="button" id="column-picker">▤ Chọn cột</button>
+        </header>
+
+        <div class="table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th data-sort="date">Ngày <span class="sort-indicator">↕</span></th>
+                <th data-sort="orders">Đơn hàng <span class="sort-indicator">↕</span></th>
+                <th data-sort="revenue">Doanh thu <span class="sort-indicator">↕</span></th>
+                <th data-sort="discount">Chiết khấu <span class="sort-indicator">↕</span></th>
+                <th data-sort="net">Doanh thu thuần <span class="sort-indicator">↕</span></th>
+                <th data-sort="shipping">Vận chuyển <span class="sort-indicator">↕</span></th>
+                <th data-sort="shippingDiscount">Giảm phí vận chuyển <span class="sort-indicator">↕</span></th>
+                <th data-sort="total">Tổng hóa đơn <span class="sort-indicator">↕</span></th>
+                <th data-sort="paid">Đã thanh toán <span class="sort-indicator">↕</span></th>
+              </tr>
+            </thead>
+            <tbody id="report-body">
+              <!-- Các dòng sẽ được render bằng JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/report.js"></script>
+</body>
+</html>
