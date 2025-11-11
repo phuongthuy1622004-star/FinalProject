@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitMeal - Trang chủ</title>
+
+    <!-- Liên kết đến file CSS của bạn -->
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="../MenuProducts/asset/css/style.css">
+    
+    <link rel="stylesheet" href="../Components/footer.css">
+    <link rel="stylesheet" href="../Components/header.css">
+
+    <!-- Liên kết đến Google Fonts (Chỉ dùng Montserrat cho phong cách mới) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS cho 3D Butterfly -->
+    <style>
+        #container3D {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+        }
+        
+        .butterfly-loading {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header dùng Components -->
+    
+    <!-- Replace header with shared component container -->
+    <div id="site-header" data-components-root="../Components" data-asset-base="../MenuProducts/asset" data-pages-base="../"></div>
+    
+    <!-- Loader script cho header component -->
+    <script type="module" src="../Components/header.js"></script>
+    
+    <!-- 3D Butterfly Container -->
+    <div id="container3D"></div>
+    <div class="butterfly-loading" id="butterfly-loading" style="display: none;">Đang tải bướm 3D...</div>
+    
+    <main class="home-fitmeal">
+        <!-- === Subtitle Marquee (auto from footer info) === -->
+        <div class="subtitle-marquee" aria-hidden="true">
+            <div class="subtitle-track"></div>
+            <div class="subtitle-track subtitle-clone"></div>
+        </div>
+        <!-- === Hero Banner (Video) === -->
+        <section class="hero-banner video-hero">
+            <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="../Homepage/images/homepage/H1.webp">
+                <source src="images/intro_homepage.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <div class="hero-messages">
+                    <div class="hero-message active">
+                        <h1>Bữa Ăn Lành Mạnh</h1>
+                        <p>Khám phá thực đơn eat clean đa dạng, được chế biến từ nguyên liệu tươi ngon nhất.</p>
+                        <a href="../MenuProducts/front_end/menu_khach_le.html" class="cta-button">Xem Thực Đơn</a>
+                    </div>
+                    <div class="hero-message">
+                        <h1>Giao Hàng Tận Nơi</h1>
+                        <p>Tiện lợi, nhanh chóng và luôn đảm bảo chất lượng trên từng bữa ăn.</p>
+                        <a href="../MenuProducts/front_end/menu_khach_le.html" class="cta-button">Đặt Hàng Ngay</a>
+                    </div>
+                    <div class="hero-message">
+                        <h1>Gói Ăn Tiện Lợi</h1>
+                        <p>Lên kế hoạch bữa ăn cho cả tuần một cách dễ dàng và khoa học.</p>
+                        <a href="../MenuProducts/front_end/goi_an_tuan.html" class="cta-button">Khám Phá Gói Ăn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Services Section ======================= -->
+        <section class="services-section">
+            <div class="container benefits-grid">
+                <!-- Card 1: Miễn phí vận chuyển -->
+                <div class="benefit-card" style="background-image: url('../Homepage/images/freeship.jpg');">
+                    <div class="benefit-overlay"></div>
+                    <div class="benefit-text">
+                        <h4 class="benefit-title">Miễn phí vận chuyển</h4>
+                        <p class="benefit-desc">Cho đơn hàng từ 500.000đ</p>
+                    </div>
+                    <!-- Hover panel -->
+                    <div class="benefit-hover">
+                        <p class="hover-title">Giao nhanh toàn quốc</p>
+                        <p class="hover-desc">Miễn phí vận chuyển cho đơn từ 500.000đ, giao trong ngày tại nội thành và 2–3 ngày ở các tỉnh. Theo dõi trạng thái đơn hàng thời gian thực.</p>
+                        <a href="../FAQ/html/faq.html" class="hover-link">Xem phí & khu vực</a>
+                    </div>
+                </div>
+
+                <!-- Card 2: Quà tặng đặc biệt -->
+                <div class="benefit-card" style="background-image: url('../Homepage/images/gift.jpg');">
+                    <div class="benefit-overlay"></div>
+                    <div class="benefit-text">
+                        <h4 class="benefit-title">Quà tặng đặc biệt</h4>
+                        <p class="benefit-desc">Nhiều ưu đãi hấp dẫn</p>
+                    </div>
+                    <!-- Hover panel -->
+                    <div class="benefit-hover">
+                        <p class="hover-title">Quà theo mùa</p>
+                        <p class="hover-desc">Nhận quà tặng độc quyền theo chiến dịch trong tháng, số lượng giới hạn. Tự chọn thiệp và gói quà miễn phí cho người thân.</p>
+                        <a href="../Blog/html/blog.html" class="hover-link">Khám phá quà tặng</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Chất lượng đảm bảo -->
+                <div class="benefit-card" style="background-image: url('../Homepage/images/quality.jpg');">
+                    <div class="benefit-overlay"></div>
+                    <div class="benefit-text">
+                        <h4 class="benefit-title">Chất lượng đảm bảo</h4>
+                        <p class="benefit-desc">Nguyên liệu 100% tự nhiên</p>
+                    </div>
+                    <!-- Hover panel -->
+                    <div class="benefit-hover">
+                        <p class="hover-title">Chứng nhận chuẩn</p>
+                        <p class="hover-desc">Nguyên liệu đạt chuẩn an toàn, truy xuất nguồn gốc rõ ràng. Quy trình chế biến khép kín, kiểm soát chất lượng từng bước.</p>
+                        <a href="../Blog/html/blog.html" class="hover-link">Tìm hiểu quy trình</a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Hỗ trợ 24/7 -->
+                <div class="benefit-card" style="background-image: url('../Homepage/images/support.jpg');">
+                    <div class="benefit-overlay"></div>
+                    <div class="benefit-text">
+                        <h4 class="benefit-title">Hỗ trợ KH 24/7</h4>
+                        <p class="benefit-desc">Luôn sẵn sàng phục vụ</p>
+                    </div>
+                    <!-- Hover panel -->
+                    <div class="benefit-hover">
+                        <p class="hover-title">Chat ngay</p>
+                        <p class="hover-desc">Đội ngũ CSKH phản hồi tức thì 24/7 qua chat, email và hotline. Hỗ trợ đổi trả, theo dõi đơn và tư vấn thực đơn cá nhân hóa.</p>
+                        <a href="../Contact/html/contact.html" class="hover-link">Liên hệ hỗ trợ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Sản phẩm bán chạy ======================= -->
+        <section class="bestsellers">
+            <div class="container">
+                <div class="section-title">
+                    <h2>THỰC ĐƠN BÁN CHẠY</h2>
+                    <p>Những món ăn được yêu thích nhất tại FITMEAL</p>
+                </div>
+                <!-- Carousel: 4 thẻ/khung nhìn, có nút trái/phải -->
+                <div class="bestseller-carousel">
+                    <button class="bs-prev" aria-label="Chuyển trái">&#10094;</button>
+                    <div class="bestseller-track">
+                        <div class="bestseller-inner">
+                            <!-- 4 món hiện có -->
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../Homepage/images/products/menu khách lẻ/ít calo/L4.png" alt="Salad ức gà"></div>
+                                <div class="product-info">
+                                    <h4 class="product-name">Salad Ức Gà Nướng</h4>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../Homepage/images/products/menu khách lẻ/ít calo/L7.png" alt="Cơm gạo lứt ức gà"></div>
+                                <div class="product-info">
+                                    <h4 class="product-name">Cơm Gạo Lứt Ức Gà</h4>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../Homepage/images/products/menu khách lẻ/ít calo/L3.png" alt="Mì tôm Nhật"></div>
+                                <div class="product-info">
+                                    <h4 class="product-name">Mì Tôm Nhật</h4>
+                                </div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../Homepage/images/products/menu khách lẻ/ít calo/L10.png" alt="Salad cá hồi bí đỏ"></div>
+                                <div class="product-info">
+                                    <h4 class="product-name">Salad Cá Hồi Bí Đỏ</h4>
+                                </div>
+                            </div>
+
+                            <!-- 11 món thêm từ Menu Khách Lẻ -->
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/bo_nuong_khoai_lang.png" alt="Bò nướng khoai lang"></div>
+                                <div class="product-info"><h4 class="product-name">Bò Nướng Khoai Lang</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/ca_hoi_rau_cu.png" alt="Cá hồi rau củ"></div>
+                                <div class="product-info"><h4 class="product-name">Cá Hồi Rau Củ</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/uc_ga_khoai_tay.png" alt="Ức gà khoai tây"></div>
+                                <div class="product-info"><h4 class="product-name">Ức Gà Khoai Tây</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/mi_ga_sot_cajun.png" alt="Mì gà sốt cajun"></div>
+                                <div class="product-info"><h4 class="product-name">Mì Gà Sốt Cajun</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/ca_ngu_khoai_bap.png" alt="Cá ngừ khoai bắp"></div>
+                                <div class="product-info"><h4 class="product-name">Cá Ngừ Khoai Bắp</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/ga_sot_cajun_cu_den.png" alt="Gà sốt cajun củ dền"></div>
+                                <div class="product-info"><h4 class="product-name">Gà Sốt Cajun Củ Dền</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/mi_ca_basa.png" alt="Mì cá basa"></div>
+                                <div class="product-info"><h4 class="product-name">Mì Cá Basa</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/bo_bong_cai_xanh.png" alt="Bò bông cải xanh"></div>
+                                <div class="product-info"><h4 class="product-name">Bò Bông Cải Xanh</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/it_calo/uc_vit_bi_do.png" alt="Ức vịt bí đỏ"></div>
+                                <div class="product-info"><h4 class="product-name">Ức Vịt Bí Đỏ</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/can_doi/com_gao_lut_ca_hoi.png" alt="Cơm gạo lứt cá hồi"></div>
+                                <div class="product-info"><h4 class="product-name">Cơm Gạo Lứt Cá Hồi</h4></div>
+                            </div>
+                            <div class="product-card">
+                                <div class="product-image-wrapper"><img src="../MenuProducts/asset/img/menukhachle/can_doi/nui_ca_hoi.png" alt="Nui cá hồi"></div>
+                                <div class="product-info"><h4 class="product-name">Nui Cá Hồi</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="bs-next" aria-label="Chuyển phải">&#10095;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Banner Kêu Gọi Hành Động (Slider với nội dung động) ======================= -->
+        <section class="cta-banner-section slider-component">
+            <div class="slides">
+                <!-- Slide 1: Gói Ăn Giảm Cân -->
+                <div class="slide">
+                    <img src="../Homepage/images/homepage/H4.jpeg" alt="Thực đơn giảm cân khoa học">
+                    <div class="container cta-banner-content">
+                        <h2>Gói Ăn Giảm Cân</h2>
+                        <p>Thực đơn được thiết kế khoa học bởi chuyên gia dinh dưỡng, giúp bạn đạt mục tiêu vóc dáng hiệu quả.</p>
+                <a href="../MenuProducts/front_end/goi_an_tuan.html" class="cta-banner-btn" aria-label="Đi tới Gói ăn tuần">Tìm Hiểu Ngay</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Menu Khách Lẻ -->
+                <div class="slide">
+                    <img src="../Homepage/images/homepage/H6.jpg" alt="Nguyên liệu tươi ngon cho gói giảm cân">
+                     <div class="container cta-banner-content">
+                <h2 class="english-title">À la carte menu</h2>
+                <h3>MENU KHÁCH LẺ</h3>
+                <a href="../MenuProducts/front_end/menu_khach_le.html" class="cta-banner-btn" aria-label="Đi tới Menu khách lẻ">Xem Menu</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Gói Ăn Tuần -->
+                <div class="slide">
+                    <img src="../Homepage/images/homepage/H7.jpg" alt="Bữa ăn giảm cân được chuẩn bị sẵn">
+                     <div class="container cta-banner-content">
+                <h2 class="english-title">Weekly meal plan</h2>
+                <h3>GÓI ĂN TUẦN</h3>
+                <a href="../MenuProducts/front_end/goi_an_tuan.html" class="cta-banner-btn" aria-label="Đi tới Gói ăn tuần">Khám Phá</a>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Gói Ăn Thiết Kế Riêng -->
+                <div class="slide">
+                    <img src="../Homepage/images/homepage/H8.jpg" alt="Thành phần dinh dưỡng của gói ăn giảm cân">
+                     <div class="container cta-banner-content">
+                        <h2 class="english-title">Personalized Meal Plan</h2>
+                        <h3>GÓI ĂN THIẾT KẾ RIÊNG</h3>
+                    <a href="../MealCustomization/html/meal_customization.html" class="cta-banner-btn" aria-label="Đi tới Gói ăn thiết kế riêng">Tư Vấn 1:1</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="prev-slide" aria-label="Previous Slide">&#10094;</button>
+                <button class="next-slide" aria-label="Next Slide">&#10095;</button>
+            </div>
+            
+            <div class="slider-dots"></div>
+        </section>
+        <!-- ======================= Brand Story ======================= -->
+        <section class="brand-story">
+            <div class="container story-container">
+                <div class="story-image">
+                    <img src="../Homepage/images/homepage/H5.webp" alt="Câu chuyện thương hiệu FITMEAL">
+                </div>
+                <div class="story-content">
+                    <h2>Câu chuyện của FITMEAL</h2>
+                    <p>Ra đời từ niềm đam mê mang đến những bữa ăn không chỉ ngon miệng mà còn lành mạnh, FITMEAL là người bạn đồng hành trên hành trình chăm sóc sức khỏe và vóc dáng của bạn.</p>
+                    <a href="../Blog/html/blog.html" class="cta-button" aria-label="Xem thêm về Blog">Xem thêm</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Instagram Feed ======================= -->
+        <section class="instagram-feed">
+            <div class="container">
+                <div class="section-title">
+                    <h2>THEO DÕI CHÚNG TÔI TRÊN INSTAGRAM</h2>
+                    <p><a href="https://instagram.com" target="_blank" rel="noopener">@fitmeal.vietnam</a></p>
+                </div>
+                <!-- Layout 2 cột: ảnh trái, story phải -->
+                <div class="instagram-two-col">
+                    <div class="insta-left">
+                        <img src="../Homepage/images/insta_cover.jpg" alt="FITMEAL Instagram cover">
+                    </div>
+                    <div class="insta-right">
+                        <div class="story-frame" aria-label="Instagram story">
+                            <div class="story-header">
+                                <span class="story-handle">@fitmeal.vietnam</span>
+                            </div>
+                            <div class="story-slides">
+                                <div class="story-slide active">
+                                    <img src="../Homepage/images/insta_story_1.jpeg" alt="Story 1">
+                                </div>
+                                <div class="story-slide">
+                                    <img src="../Homepage/images/insta_story_2.jpg" alt="Story 2">
+                                </div>
+                                <div class="story-slide">
+                                    <img src="../Homepage/images/insta_story_3.jpg" alt="Story 3">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Marquee username behind story -->
+                        <div class="insta-marquee" aria-hidden="true">
+                            <div class="marquee-track">@fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam</div>
+                            <div class="marquee-track marquee-clone">@fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam · @fitmeal.vietnam</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer dùng Components -->
+    
+    <!-- Replace footer with shared component container -->
+    <div id="site-footer" data-components-root="../Components" data-asset-base="../MenuProducts/asset" data-pages-base="../"></div>
+
+    
+    <script type="module" src="../Components/footer.js"></script>
+    
+    <!-- Login Popup (hiển thị một lần khi vào Homepage) -->
+    <div id="login-popup" class="login-popup" aria-hidden="true">
+        <div class="login-popup-backdrop" data-close="true"></div>
+        <div class="login-popup-dialog" role="dialog" aria-modal="true" aria-labelledby="login-popup-title">
+            <button class="login-popup-close" aria-label="Đóng popup" data-close="true">&times;</button>
+            <iframe class="login-popup-iframe" src="../UserManagement/User/login.html" title="Đăng nhập FITMEAL"></iframe>
+        </div>
+    </div>
+
+    <script src="../Homepage/homepage.js"></script>
+    
+    <!-- 3D Butterfly Script -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+      }
+    }
+    </script>
+
+    <script type="module">
+    import * as THREE from 'three';
+    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+    // Setup Scene
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    document.getElementById('container3D').appendChild(renderer.domElement);
+
+    // Lights
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.3);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(5, 5, 5);
+    scene.add(directionalLight);
+
+    // Load Butterfly Model
+    let butterfly;
+    let mixer;
+    const loader = new GLTFLoader();
+    const loadingEl = document.getElementById('butterfly-loading');
+    
+    loadingEl.style.display = 'block';
+
+    loader.load(
+      'https://raw.githubusercontent.com/phuongthuy1622004-star/FinalProject/main/rainbow_butterfly%20(1).glb',
+      function (gltf) {
+        butterfly = gltf.scene;
+        scene.add(butterfly);
+
+        // Animation
+        if (gltf.animations && gltf.animations.length > 0) {
+          mixer = new THREE.AnimationMixer(butterfly);
+          mixer.clipAction(gltf.animations[0]).play();
+        }
+
+        // Hide loading
+        loadingEl.style.display = 'none';
+        
+        // Initial position
+        updateButterflyPosition();
+      },
+      function (xhr) {
+        const percent = (xhr.loaded / xhr.total) * 100;
+        loadingEl.textContent = `Đang tải : ${Math.round(percent)}%`;
+      },
+      function (error) {
+        console.error('Error loading butterfly:', error);
+        loadingEl.textContent = 'Lỗi tải!';
+        setTimeout(() => {
+          loadingEl.style.display = 'none';
+        }, 3000);
+      }
+    );
+
+    // Butterfly positions for each section
+    const butterflyPositions = [
+      { 
+        section: 'hero-banner', 
+        position: { x: 2, y: 0, z: 0 }, 
+        rotation: { x: 0, y: 0.5, z: 0 } 
+      },
+      { 
+        section: 'services-section', 
+        position: { x: -2, y: 1, z: -1 }, 
+        rotation: { x: 0.2, y: -0.5, z: 0.1 } 
+      },
+      { 
+        section: 'bestsellers', 
+        position: { x: 1.5, y: -0.5, z: -2 }, 
+        rotation: { x: 0, y: 1, z: 0.2 } 
+      },
+      { 
+        section: 'cta-banner-section', 
+        position: { x: -1.5, y: 0.5, z: -3 }, 
+        rotation: { x: 0.1, y: -0.8, z: -0.1 } 
+      },
+      { 
+        section: 'brand-story', 
+        position: { x: 0, y: -1, z: -4 }, 
+        rotation: { x: 0.3, y: 0.2, z: 0 } 
+      },
+      { 
+        section: 'instagram-feed', 
+        position: { x: 2, y: 0, z: -5 }, 
+        rotation: { x: 0, y: -0.5, z: 0.15 } 
+      }
+    ];
+
+    // Update butterfly position based on scroll
+    function updateButterflyPosition() {
+      if (!butterfly) return;
+
+      const sections = document.querySelectorAll('section');
+      let currentSection = 'hero-banner';
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          // Get class name or first class
+          currentSection = section.className.split(' ')[0];
+        }
+      });
+
+      const targetPos = butterflyPositions.find(pos => pos.section === currentSection);
+      
+      if (targetPos) {
+        // Smooth transition
+        butterfly.position.x += (targetPos.position.x - butterfly.position.x) * 0.05;
+        butterfly.position.y += (targetPos.position.y - butterfly.position.y) * 0.05;
+        butterfly.position.z += (targetPos.position.z - butterfly.position.z) * 0.05;
+        
+        butterfly.rotation.x += (targetPos.rotation.x - butterfly.rotation.x) * 0.05;
+        butterfly.rotation.y += (targetPos.rotation.y - butterfly.rotation.y) * 0.05;
+        butterfly.rotation.z += (targetPos.rotation.z - butterfly.rotation.z) * 0.05;
+      }
+    }
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      if (mixer) {
+        mixer.update(0.016);
+      }
+      
+      updateButterflyPosition();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle scroll
+    window.addEventListener('scroll', updateButterflyPosition);
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+    </script>
+</body>
+</html>
